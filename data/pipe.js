@@ -34,15 +34,15 @@ class Pipe {
     }
     
     isCollide(bird){
-        return isInside(bird.pos, this.topPipe) || isInside(bird.pos, this.bottomPipe);
-        /*return circleRect(
+        //return isInside(bird.pos, this.topPipe) || isInside(bird.pos, this.bottomPipe);
+        return circleRect(
             bird,
             this.topPipe
         ) || 
         circleRect(
             bird,
             this.bottomPipe
-        );*/
+        );
     }
 
     update() {

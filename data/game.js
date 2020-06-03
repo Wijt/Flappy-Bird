@@ -40,16 +40,20 @@ function update() {
     if(bird.live){
         pipes.forEach(element => {
             element.update();
-            if (element.isCollide(bird))
-                bird.live = false;
-            if (element.pos.x <= bird.pos.x && element.hasPoint){
-                element.hasPoint = false;
-                bird.point++;
-            }
         });
-        if (mouseIsPressed)
-            bird.jump();
     }
+    pipes.forEach(element => {
+        if (element.isCollide(bird)){
+            bird.live = false;
+            console.log("ÇARPTI");
+        }
+        if (element.pos.x <= bird.pos.x && element.hasPoint){
+            element.hasPoint = false;
+            bird.point++;
+        }
+    });
+    if (mouseIsPressed)
+        bird.jump();
 }
 
 
@@ -59,8 +63,8 @@ function isInside(pos, rect){
 
 function circleRect(bird, rect) {
     // temporary variables to set edges for testing
-    let testX = 0;
-    let testY = 0;
+    let testX = bird.pos.x;
+    let testY = bird.pos.y;
   
     // which edge is closest?
     if      (bird.pos.x < rect.x1)           testX = rect.x1;      // test left edge

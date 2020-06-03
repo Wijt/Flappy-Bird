@@ -21,7 +21,7 @@ class Bird {
     }
 
     update() {
-        if(this.pos.y < height){
+        /*if(this.pos.y < height){
             this.pos.y += this.velocity;
             this.velocity += 0.4;
         }else{
@@ -32,7 +32,9 @@ class Bird {
         if (this.pos.y < 0){
             bird.live = false;
         }
-        console.log(this.point);
+        console.log(this.point);*/
+        this.pos.x = mouseX;
+        this.pos.y = mouseY;
     }
 
 }
