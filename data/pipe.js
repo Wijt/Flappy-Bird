@@ -25,7 +25,7 @@ class Pipe {
 
     show(){
         pop();
-            fill(PIPE_COLOR);
+            fill(color(PIPE_COLOR));
             noStroke();
             rectMode(CORNER);
             rect(this.topPipe.x1, this.topPipe.y1, this.width, this.topPipe.y2);

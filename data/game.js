@@ -5,19 +5,18 @@ let pipes = [];
 
 function setup(){
     //createCanvas(288,512);
-    createCanvas(windowWidth,windowHeight)
+    createCanvas(windowWidth, windowHeight)
     bird = new Bird(100,250);
-    pipeCount = windowWidth/150;
-    for (let i = 1; i <= pipeCount+1; i++) {
-        new Pipe(width + i*200, random(150, height-150));
+
+    pipeCount = width / (PIPE_BETWEEN + PIPE_WIDTH);
+    for (let i = 1; i <= pipeCount + 3; i++) {
+        new Pipe(width + i * PIPE_BETWEEN + PIPE_WIDTH, random(150, height-150));
     }
-    /*new Pipe(width + 100, 250);
-    new Pipe(width + 300, random(150, height-150));*/
 }
 
 function draw(){
     pop();
-        background(color("#1b1b2f"));
+        background(color(BG_COLOR));
     push();
 
     pipes.forEach(element => {
@@ -25,8 +24,8 @@ function draw(){
     });
 
     pop();
-        fill(color("#162447"));
-        rect(0, height-25, width, 50);
+        fill(color(GROUND_COLOR));
+        rect(0, height - GROUND_HEIGHT, width, GROUND_HEIGHT);
     push();
 
     bird.show();
