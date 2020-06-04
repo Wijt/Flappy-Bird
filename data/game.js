@@ -11,13 +11,8 @@ function preload() {
 
 function setup(){
     frameRate(60);
-    createCanvas(windowWidth, windowHeight)
-    bird = new Bird(100,250);
-
-    pipeCount = width / (PIPE_BETWEEN + PIPE_WIDTH);
-    for (let i = 1; i <= pipeCount + 2; i++) {
-        new Pipe(width + i * (PIPE_BETWEEN + PIPE_WIDTH), random(150, height-150));
-    }
+    createCanvas(windowWidth, windowHeight);
+    start();
 }
 
 function LoadSounds(){
@@ -27,6 +22,17 @@ function LoadSounds(){
     soundEffects.push(loadSound('data/sound/sfx_swooshing.wav'));
     soundEffects.push(loadSound('data/sound/sfx_wing.wav'));
 }
+
+function start(){
+    pipes = [];
+    bird = new Bird(100,250);
+    let pipeCount = width / (PIPE_BETWEEN + PIPE_WIDTH);
+    for (let i = 1; i <= pipeCount + 2; i++) {
+        new Pipe(width + i * (PIPE_BETWEEN + PIPE_WIDTH), random(150, height-150));
+    }
+}
+
+
 
 function draw(){
     pop();
@@ -78,6 +84,8 @@ function mouseReleased(){
     if (bird.live){
         bird.jump();
         try { soundEffects[4].play(); } catch(e) {}
+    }else{
+        start();
     }
 }
 
