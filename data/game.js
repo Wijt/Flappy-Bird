@@ -19,9 +19,16 @@ function draw(){
     pop();
         background(color("#1b1b2f"));
     push();
+
     pipes.forEach(element => {
         element.show();
     });
+
+    pop();
+        fill(color("#162447"));
+        rect(0, height-25, width, 50);
+    push();
+
     bird.show();
 
 
@@ -40,21 +47,25 @@ function update() {
     if(bird.live){
         pipes.forEach(element => {
             element.update();
+            if (element.isCollide(bird)){
+                bird.live = false;
+                console.warn("ÇARPTI");
+            }
+            if (element.pos.x <= bird.pos.x && element.hasPoint){
+                element.hasPoint = false;
+                bird.point++;
+            }
         });
     }
-    pipes.forEach(element => {
-        if (element.isCollide(bird)){
-            bird.live = false;
-            console.log("ÇARPTI");
-        }
-        if (element.pos.x <= bird.pos.x && element.hasPoint){
-            element.hasPoint = false;
-            bird.point++;
-        }
-    });
-    if (mouseIsPressed)
+}
+
+function mouseReleased(){
+    if (bird.live)
         bird.jump();
 }
+
+
+
 
 
 function isInside(pos, rect){
@@ -67,10 +78,10 @@ function circleRect(bird, rect) {
     let testY = bird.pos.y;
   
     // which edge is closest?
-    if      (bird.pos.x < rect.x1)           testX = rect.x1;      // test left edge
-    else if (bird.pos.x > rect.x2)          testX = rect.x2;   // right edge
-    if      (bird.pos.y < rect.y1)           testY = rect.y1;      // top edge
-    else if (bird.pos.y > rect.y2)          testY = rect.y2;   // bottom edge
+    if (bird.pos.x < rect.x1)       testX = rect.x1;      // test left edge
+    else if (bird.pos.x > rect.x2)  testX = rect.x2;   // right edge
+    if (bird.pos.y < rect.y1)       testY = rect.y1;      // top edge
+    else if (bird.pos.y > rect.y2)  testY = rect.y2;   // bottom edge
   
     // get distance from closest edges
     let distX = bird.pos.x - testX;

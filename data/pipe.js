@@ -1,9 +1,9 @@
 class Pipe {
     constructor(x,y) {
         this.pos = {x: x, y: y};
-        this.gapH = 100;
-        this.width = 50;
-        this.velocity = 2;
+        this.gapH = PIPE_GAP_H;
+        this.width = PIPE_WIDTH;
+        this.velocity = PIPE_SCROOL;
 
         this.hasPoint = true;
 
@@ -25,7 +25,7 @@ class Pipe {
 
     show(){
         pop();
-            fill(color("#1f4068"));
+            fill(PIPE_COLOR);
             noStroke();
             rectMode(CORNER);
             rect(this.topPipe.x1, this.topPipe.y1, this.width, this.topPipe.y2);
