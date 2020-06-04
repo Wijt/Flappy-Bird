@@ -13,6 +13,9 @@ PIPE_BETWEEN = 200;
 GROUND_HEIGHT = 25;
 
 
+DEBUG_MODE = false;
+
+
 
 BIRD_COLOR = "#e43f5a";
 PIPE_COLOR = "#1f4068";

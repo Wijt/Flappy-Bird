@@ -21,9 +21,10 @@ class Bird {
     }
 
     die(){
+        console.warn("HIT!");
+        
         this.live = false;
         try { soundEffects[2].play(); } catch(e) {}
-        console.warn("HIT!");
         try { soundEffects[1].play(); } catch(e) {}
     }
 
