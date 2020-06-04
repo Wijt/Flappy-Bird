@@ -97,6 +97,7 @@ function isInside(pos, rect){
     return pos.x >= rect.x1 && pos.x <= rect.x2  &&  pos.y >= rect.y1 && pos.y <= rect.y2;
 }
 
+//http://www.jeffreythompson.org/collision-detection/circle-rect.php
 function circleRect(bird, rectV) {
     // temporary variables to set edges for testing
     let testX = bird.pos.x;
