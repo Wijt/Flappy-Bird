@@ -67,10 +67,7 @@ function update() {
         pipes.forEach(element => {
             element.update();
             if (element.isCollide(bird)){
-                bird.live = false;
-                try { soundEffects[2].play(); } catch(e) {}
-                console.warn("ÇARPTI");
-                try { soundEffects[1].play(); } catch(e) {}
+                bird.die();
             }
             if (element.pos.x <= bird.pos.x && element.hasPoint){
                 element.hasPoint = false;

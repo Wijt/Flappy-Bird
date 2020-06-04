@@ -20,17 +20,25 @@ class Bird {
         this.velocity -= BIRD_JUMP_POWER;
     }
 
+    die(){
+        this.live = false;
+        try { soundEffects[2].play(); } catch(e) {}
+        console.warn("HIT!");
+        try { soundEffects[1].play(); } catch(e) {}
+    }
+
     update() {
+        if(this.live){
+            if (this.pos.y < 0 || this.pos.y > height - GROUND_HEIGHT){
+                bird.die();
+            }
+        }
+
         if(this.pos.y < height - GROUND_HEIGHT){
             this.pos.y += this.velocity;
             this.velocity += 0.4;
         }else{
-            bird.live = false;
             this.pos.y = height - GROUND_HEIGHT;
-        }
-
-        if (this.pos.y < 0){
-            bird.live = false;
         }
     }
 
