@@ -18,3 +18,9 @@ BIRD_COLOR = "#e43f5a";
 PIPE_COLOR = "#1f4068";
 GROUND_COLOR = "#162447"
 BG_COLOR = "#1b1b2f";
+/*
+BIRD_COLOR = "#4f8a8b";
+PIPE_COLOR = "#ffcb74";
+GROUND_COLOR = "#ffcb74"
+BG_COLOR = "#07031a";
+*/
