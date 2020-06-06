@@ -1,5 +1,5 @@
 class Bird {
-    constructor(x,y) {
+    constructor(x, y) {
         this.pos = {x: x, y: y};
         this.radius = BIRD_R,
 

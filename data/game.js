@@ -10,7 +10,7 @@ function preload() {
 }
 
 function setup(){
-    frameRate(60);
+    //frameRate(60);
     createCanvas(windowWidth, windowHeight);
     start();
 }
@@ -28,7 +28,7 @@ function start(){
     bird = new Bird(100,250);
     let pipeCount = width / (PIPE_BETWEEN + PIPE_WIDTH);
     for (let i = 1; i <= pipeCount + 2; i++) {
-        new Pipe(width + i * (PIPE_BETWEEN + PIPE_WIDTH), random(150, height-150));
+        new Pipe(width + i * (PIPE_BETWEEN + PIPE_WIDTH), random(PIPE_NO_GAP_ZONE, height-PIPE_NO_GAP_ZONE));
     }
 }
 
@@ -54,8 +54,8 @@ function draw(){
     pop();
         textAlign(CENTER);
         fill(255);
-        textSize(30);
-        text(bird.point, width/2,40);
+        textSize(60);
+        text(bird.point, width/2,60);
     push();
 
     update();
