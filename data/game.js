@@ -35,28 +35,28 @@ function start(){
 
 
 function draw(){
-    pop();
-        background(color(BG_COLOR));
     push();
+        background(color(BG_COLOR));
+    pop();
 
     pipes.forEach(element => {
         element.show();
     });
-
-    pop();
+    push();
         fill(color(GROUND_COLOR));
         rect(0, height - GROUND_HEIGHT, width, GROUND_HEIGHT);
-    push();
+    pop();
+
 
     bird.show();
 
 
-    pop();
+    push();
         textAlign(CENTER);
         fill(255);
         textSize(60);
         text(bird.point, width/2,60);
-    push();
+    pop();
 
     update();
 }
