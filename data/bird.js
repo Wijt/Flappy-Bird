@@ -10,6 +10,7 @@ class Bird {
 
     show(){
         push();
+            noStroke();
             fill(color(BIRD_COLOR));
             ellipse(this.pos.x, this.pos.y, this.radius, this.radius);
         pop();

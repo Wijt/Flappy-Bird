@@ -42,7 +42,9 @@ function draw(){
     pipes.forEach(element => {
         element.show();
     });
+
     push();
+        noStroke();
         fill(color(GROUND_COLOR));
         rect(0, height - GROUND_HEIGHT, width, GROUND_HEIGHT);
     pop();
