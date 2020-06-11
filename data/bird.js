@@ -16,6 +16,7 @@ class Bird {
     }
 
     jump(){
+        try { soundEffects[4].play(); } catch(e) {}
         this.velocity = 0;
         this.velocity -= BIRD_JUMP_POWER;
     }

@@ -83,9 +83,18 @@ function update() {
 function mouseReleased(){
     if (bird.live){
         bird.jump();
-        try { soundEffects[4].play(); } catch(e) {}
     }else{
         start();
+    }
+}
+
+function keyReleased(){
+    if(keyCode == 32){ //32 for space bar
+        if (bird.live){
+            bird.jump();
+        }else{
+            start();
+        }
     }
 }
 
